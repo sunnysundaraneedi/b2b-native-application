@@ -1,3 +1,3 @@
 export const useAuth = () => {
-  return { signedIn: true, userType: "D" };
+  return { signedIn: false, userType: "C" };
 };

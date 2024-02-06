@@ -1,11 +1,14 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
+import Input from "../../components/ui/Input";
 
 const LoginScreen = () => {
   return (
-    <View>
+    <SafeAreaView>
       <Text>LoginScreen</Text>
-    </View>
+      <Input />
+    </SafeAreaView>
   );
 };
 
