@@ -5,15 +5,24 @@ import { useAuth } from "./hooks/useAuth";
 import LoginScreen from "./screens/Auth/LoginScreen";
 import CustomerStack from "./stacks/CustomerStack";
 import AdminStack from "./stacks/AdminStack";
-import { useFonts, Poppins_600SemiBold } from "@expo-google-fonts/poppins";
+import {
+  useFonts,
+  Poppins_400Regular,
+  Poppins_500Medium,
+  Poppins_600SemiBold,
+  Poppins_800ExtraBold,
+} from "@expo-google-fonts/poppins";
 import { useEffect } from "react";
-
+import { Fragment } from "react";
 const Stack = createNativeStackNavigator();
 export default function App() {
   const { signedIn, userType } = useAuth();
 
   const [fontsLoaded, fontError] = useFonts({
+    Poppins_400Regular,
+    Poppins_500Medium,
     Poppins_600SemiBold,
+    Poppins_800ExtraBold,
   });
 
   useEffect(() => {
@@ -29,7 +38,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         {signedIn ? (
-          <>
+          <Fragment>
             {userType == "C" && (
               <Stack.Screen
                 name="Customer"
@@ -48,9 +57,9 @@ export default function App() {
                 }}
               />
             )}
-          </>
+          </Fragment>
         ) : (
-          <>
+          <Fragment>
             <Stack.Screen
               name="Login"
               component={LoginScreen}
@@ -58,7 +67,7 @@ export default function App() {
                 headerShown: false,
               }}
             />
-          </>
+          </Fragment>
         )}
       </Stack.Navigator>
     </NavigationContainer>
